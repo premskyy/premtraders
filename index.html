@@ -1,11 +1,663 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prem Traders</title>
-</head>
-<body>
-    <h2>Prem Traders</h2>
-</body>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prem Traders | Cement, Steel & Building Materials Supplier in Sethiathope</title>
+    <meta
+      name="description"
+      content="Prem Traders is a trusted supplier of cement, TMT steel, sand, bricks, aggregates, waterproofing products, and construction materials in Sethiathope, Tamil Nadu."
+    />
+    <meta
+      name="keywords"
+      content="Prem Traders, Cement Dealer Sethiathope, ACC Cement, Ramco Cement, UltraTech Cement, Building Materials, Construction Materials, TMT Steel, Sand Supplier, Bricks Supplier, Construction Chemicals, Tamil Nadu"
+    />
+    <meta name="author" content="Prem Traders" />
+    <meta property="og:title" content="Prem Traders | Cement, Steel & Building Materials Supplier" />
+    <meta
+      property="og:description"
+      content="Premium cement, steel, sand, bricks, aggregates and construction materials for homes and commercial projects."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" />
+    <meta name="theme-color" content="#0B5D1E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Prem Traders",
+        "description": "Construction materials supplier in Sethiathope, Tamil Nadu.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "36/3 North Main Road",
+          "addressLocality": "Sethiathope",
+          "postalCode": "608702",
+          "addressRegion": "Tamil Nadu",
+          "addressCountry": "IN"
+        },
+        "telephone": "+91-6381637722",
+        "url": "https://example.com",
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }]
+      }
+    </script>
+    <style>
+      :root {
+        --bg: #f7f7f2;
+        --surface: #ffffff;
+        --surface-2: #f4f6f0;
+        --text: #142214;
+        --muted: #5e6a5f;
+        --primary: #0b5d1e;
+        --primary-dark: #074314;
+        --accent: #f4b400;
+        --border: rgba(11, 93, 30, 0.12);
+        --shadow: 0 16px 40px rgba(11, 93, 30, 0.12);
+        --radius: 22px;
+      }
+      html[data-theme="dark"] {
+        --bg: #07110a;
+        --surface: #0f1b12;
+        --surface-2: #16261a;
+        --text: #f7f7f2;
+        --muted: #b5c3b1;
+        --primary: #22b24f;
+        --primary-dark: #117a35;
+        --accent: #ffd766;
+        --border: rgba(255, 255, 255, 0.1);
+        --shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.6;
+      }
+      img { max-width: 100%; display: block; }
+      a { color: inherit; text-decoration: none; }
+      .container { width: min(1160px, calc(100% - 2rem)); margin: 0 auto; }
+      .section { padding: 5rem 0; }
+      .section-title {
+        font-size: clamp(1.7rem, 2.4vw, 2.35rem);
+        margin-bottom: 0.75rem;
+        color: var(--primary);
+      }
+      .section-intro { color: var(--muted); max-width: 720px; margin-bottom: 2rem; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        padding: 0.9rem 1.2rem;
+        border-radius: 999px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      }
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; box-shadow: 0 10px 22px rgba(11, 93, 30, 0.2); }
+      .btn-secondary { background: white; color: var(--primary); border: 1px solid var(--border);} 
+      html[data-theme="dark"] .btn-secondary { background: var(--surface); }
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(16px);
+        background: rgba(247,247,242,0.78);
+        border-bottom: 1px solid var(--border);
+      }
+      html[data-theme="dark"] .topbar { background: rgba(7,17,10,0.82); }
+      .nav-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.95rem 0;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-weight: 800;
+        font-size: 1.05rem;
+      }
+      .brand-badge {
+        width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, var(--primary), var(--accent)); display: grid; place-items: center; color: white; font-weight: 800;
+      }
+      .nav-links { display: flex; gap: 1rem; align-items: center; }
+      .nav-links a { color: var(--muted); font-weight: 600; }
+      .nav-links a:hover { color: var(--primary); }
+      .nav-actions { display: flex; gap: 0.6rem; }
+      .icon-btn {
+        width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); display: grid; place-items: center; color: var(--primary); cursor: pointer;
+      }
+      .hero {
+        padding: 4.4rem 0 3rem;
+        background: linear-gradient(120deg, rgba(11,93,30,0.9), rgba(7,67,22,0.72)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover;
+      }
+      .hero-grid {
+        display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2rem; align-items: center;
+      }
+      .hero h1 { font-size: clamp(2.2rem, 4vw, 3.7rem); color: white; line-height: 1.1; margin: 0 0 1rem; }
+      .hero p { font-size: 1.06rem; color: rgba(255,255,255,0.9); max-width: 680px; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.4rem; }
+      .hero-card {
+        background: rgba(255,255,255,0.16); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); padding: 1.4rem; color: white; box-shadow: var(--shadow);
+      }
+      .hero-card ul { list-style: none; padding: 0; margin: 0.6rem 0 0; display: grid; gap: 0.65rem; }
+      .hero-card li { display: flex; align-items: center; gap: 0.6rem; color: rgba(255,255,255,0.92); }
+      .hero-card .stat { font-size: 1.15rem; font-weight: 700; }
+      .card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+      .card {
+        background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; box-shadow: var(--shadow); transition: transform 0.25s ease, border-color .25s ease;
+      }
+      .card:hover { transform: translateY(-4px); border-color: rgba(244,180,0,0.45); }
+      .icon-box {
+        width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: linear-gradient(135deg, rgba(11,93,30,0.12), rgba(244,180,0,0.2)); color: var(--primary); font-size: 1.2rem;
+      }
+      .pill { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(244,180,0,0.14); color: var(--primary); padding: 0.4rem 0.7rem; border-radius: 999px; font-size: 0.84rem; font-weight: 700; margin-bottom: 0.8rem; }
+      .stats-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 1.2rem; }
+      .stat-box { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 1rem; text-align: center; }
+      .stat-box strong { display: block; font-size: 1.35rem; color: var(--accent); }
+      .brands-strip { overflow: hidden; position: relative; padding: 1.2rem 0; }
+      .brand-track { display: flex; gap: 1rem; width: max-content; animation: marquee 18s linear infinite; }
+      .brand-chip { background: var(--surface); border: 1px solid var(--border); color: var(--primary); padding: 0.9rem 1.2rem; border-radius: 999px; font-weight: 700; box-shadow: var(--shadow); }
+      @keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+      .products-grid, .services-grid, .category-grid, .gallery-grid, .testimonial-grid, .faq-list { display: grid; gap: 1.1rem; }
+      .products-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .services-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .category-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 180px; }
+      .gallery-item { overflow: hidden; position: relative; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+      .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+      .gallery-item:hover img { transform: scale(1.05); }
+      .gallery-item.tall { grid-row: span 2; }
+      .gallery-item.wide { grid-column: span 2; }
+      .product-card, .service-card, .category-card, .testimonial-card, .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem; box-shadow: var(--shadow); }
+      .product-img { height: 170px; border-radius: 16px; object-fit: cover; margin-bottom: 0.8rem; }
+      .product-card h3, .service-card h3, .category-card h3 { margin: 0.2rem 0 0.4rem; color: var(--primary); }
+      .product-meta { color: var(--muted); font-size: 0.95rem; }
+      .card-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.95rem; }
+      .card-actions .btn { padding: 0.7rem 0.92rem; font-size: 0.94rem; }
+      .testimonial-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .faq-item { cursor: pointer; }
+      .faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
+      .faq-answer { display: none; padding-top: 0.8rem; color: var(--muted); }
+      .faq-item.active .faq-answer { display: block; }
+      .contact-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 1.2rem; }
+      form { display: grid; gap: 0.9rem; }
+      input, textarea, select { width: 100%; border: 1px solid var(--border); border-radius: 14px; padding: 0.9rem 1rem; font: inherit; background: var(--surface); color: var(--text); }
+      textarea { min-height: 120px; resize: vertical; }
+      .info-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; box-shadow: var(--shadow); }
+      .info-item { display: flex; gap: 0.7rem; margin-bottom: 0.8rem; }
+      .footer { padding: 2rem 0 3rem; background: var(--surface-2); border-top: 1px solid var(--border); }
+      .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 1rem; }
+      .socials a { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border); margin-right: 0.4rem; }
+      .floating-btn {
+        position: fixed; right: 1rem; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; z-index: 1200; color: white; box-shadow: var(--shadow); border: none; cursor: pointer;
+      }
+      .floating-btn.whatsapp { bottom: 5.8rem; background: #25D366; }
+      .floating-btn.call { bottom: 1rem; background: var(--primary); }
+      .scroll-top { position: fixed; right: 1rem; bottom: 1rem; width: 52px; height: 52px; border-radius: 50%; display: none; place-items: center; background: var(--accent); color: var(--primary); border: none; box-shadow: var(--shadow); cursor: pointer; z-index: 1100; }
+      .scroll-top.show { display: grid; }
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+      @media (max-width: 980px) {
+        .hero-grid, .contact-grid { grid-template-columns: 1fr; }
+        .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .services-grid, .category-grid, .testimonial-grid, .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+      @media (max-width: 720px) {
+        .section { padding: 4rem 0; }
+        .nav-links { display: none; }
+        .stats-row, .card-grid { grid-template-columns: 1fr 1fr; }
+        .products-grid, .services-grid, .category-grid, .testimonial-grid, .footer-grid, .gallery-grid { grid-template-columns: 1fr; }
+        .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
+        .hero { padding-top: 3rem; }
+      }
+      @media (max-width: 520px) {
+        .stats-row, .card-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home" aria-label="Prem Traders home">
+          <span class="brand-badge">PT</span>
+          <span>Prem Traders</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#products">Products</a>
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+          <a class="icon-btn" href="tel:6381637722" aria-label="Call Prem Traders"><i class="fa-solid fa-phone"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="pill"><i class="fa-solid fa-building-columns"></i> Premium Construction Materials</div>
+            <h1>Premium Building Materials for Every Construction Need</h1>
+            <p>
+              We supply high-quality cement, steel, sand, bricks, aggregates, waterproofing solutions, and construction materials at competitive prices across Sethiathope and nearby areas.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="tel:6381637722"><i class="fa-solid fa-phone"></i> Call Now</a>
+              <a class="btn btn-secondary" href="https://wa.me/916381637722?text=Hello%20Prem%20Traders%2C%20I%20would%20like%20to%20inquire%20about%20construction%20materials." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+              <a class="btn btn-secondary" href="#contact"><i class="fa-solid fa-file-lines"></i> Get Quote</a>
+            </div>
+            <div class="stats-row">
+              <div class="stat-box"><strong>100+</strong><span>Projects Served</span></div>
+              <div class="stat-box"><strong>20+</strong><span>Trusted Brands</span></div>
+              <div class="stat-box"><strong>24/7</strong><span>Support</span></div>
+              <div class="stat-box"><strong>Fast</strong><span>Delivery</span></div>
+            </div>
+          </div>
+          <div class="hero-card">
+            <h2 style="margin:0 0 0.2rem; font-size:1.25rem;">Why Builders Choose Us</h2>
+            <p style="margin:0; color: rgba(255,255,255,0.88);">Reliable supply, premium products, and service that keeps projects moving.</p>
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i><span>Quality materials from leading brands</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span>Bulk orders and site delivery available</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span>Competitive rates for contractors and builders</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span>Experienced team and excellent support</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="card-grid">
+            <article class="card">
+              <div class="icon-box"><i class="fa-solid fa-medal"></i></div>
+              <h3>Quality Products</h3>
+              <p>Premium cement, steel, sand, aggregates, and waterproofing materials sourced responsibly.</p>
+            </article>
+            <article class="card">
+              <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+              <h3>Trusted Brands</h3>
+              <p>We deal in top brands including ACC, Ramco, UltraTech, Dalmia, JSW, Tata Tiscon and more.</p>
+            </article>
+            <article class="card">
+              <div class="icon-box"><i class="fa-solid fa-truck-fast"></i></div>
+              <h3>Fast Delivery</h3>
+              <p>Prompt site delivery and reliable supply to keep your construction timeline intact.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="pill"><i class="fa-solid fa-store"></i> About Prem Traders</div>
+              <h2 class="section-title">Your trusted partner for quality construction materials</h2>
+              <p class="section-intro">
+                Prem Traders is one of the trusted suppliers of premium construction materials in Sethiathope. We provide high-quality cement, TMT steel, sand, bricks, aggregates, waterproofing products, and construction chemicals from India’s leading brands. Our goal is to deliver quality materials at competitive prices with excellent customer service.
+              </p>
+              <div class="card-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1rem;">
+                <div class="card">
+                  <h3>Affordable Pricing</h3>
+                  <p>Competitive rates for contractors, builders, and retail buyers.</p>
+                </div>
+                <div class="card">
+                  <h3>Bulk Orders</h3>
+                  <p>Easy bulk procurement for large projects and ongoing construction needs.</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Construction materials warehouse" loading="lazy" style="border-radius: 18px; height: 290px; object-fit: cover;" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="pill"><i class="fa-solid fa-tags"></i> Brands We Deal</div>
+          <h2 class="section-title">Leading brands for dependable construction supply</h2>
+          <div class="brands-strip">
+            <div class="brand-track">
+              <div class="brand-chip">ACC</div>
+              <div class="brand-chip">Ramco</div>
+              <div class="brand-chip">UltraTech</div>
+              <div class="brand-chip">Dalmia</div>
+              <div class="brand-chip">JSW</div>
+              <div class="brand-chip">Tata Tiscon</div>
+              <div class="brand-chip">Soni Steel</div>
+              <div class="brand-chip">ACC</div>
+              <div class="brand-chip">Ramco</div>
+              <div class="brand-chip">UltraTech</div>
+              <div class="brand-chip">Dalmia</div>
+              <div class="brand-chip">JSW</div>
+              <div class="brand-chip">Tata Tiscon</div>
+              <div class="brand-chip">Soni Steel</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="section">
+        <div class="container">
+          <div class="pill"><i class="fa-solid fa-boxes-stacked"></i> Our Products</div>
+          <h2 class="section-title">Premium materials for residential and commercial projects</h2>
+          <p class="section-intro">Choose from a wide selection of cement, steel, aggregates, sand, bricks, chemicals, and site equipment.</p>
+          <div class="products-grid">
+            <article class="product-card">
+              <img class="product-img" src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=900&q=80" alt="ACC Cement bag" loading="lazy" />
+              <h3>ACC Cement</h3>
+              <p class="product-meta">High strength cement for strong, durable construction.</p>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="tel:6381637722"><i class="fa-solid fa-phone"></i> Call</a>
+                <a class="btn btn-secondary" href="https://wa.me/916381637722" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Inquiry</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img class="product-img" src="https://images.unsplash.com/photo-1581093588403-a3c6b6d8b34b?auto=format&fit=crop&w=900&q=80" alt="Ramco Cement" loading="lazy" />
+              <h3>Ramco Cement</h3>
+              <p class="product-meta">Reliable cement for homes, housing schemes and builders.</p>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="tel:6381637722"><i class="fa-solid fa-phone"></i> Call</a>
+                <a class="btn btn-secondary" href="https://wa.me/916381637722" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Inquiry</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img class="product-img" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80" alt="UltraTech Cement" loading="lazy" />
+              <h3>UltraTech Cement</h3>
+              <p class="product-meta">Trusted by contractors for premium quality and finish.</p>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="tel:6381637722"><i class="fa-solid fa-phone"></i> Call</a>
+                <a class="btn btn-secondary" href="https://wa.me/916381637722" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Inquiry</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img class="product-img" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Dalmia Cement" loading="lazy" />
+              <h3>Dalmia Cement</h3>
+              <p class="product-meta">Ideal for long-term durability and project reliability.</p>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="tel:6381637722"><i class="fa-solid fa-phone"></i> Call</a>
+                <a class="btn btn-secondary" href="https://wa.me/916381637722" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Inquiry</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img class="product-img" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80" alt="TMT Steel" loading="lazy" />
+              <h3>TMT Steel</h3>
+              <p class="product-meta">High-strength steel reinforcing bars for structural stability.</p>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="tel:6381637722"><i class="fa-solid fa-phone"></i> Call</a>
+                <a class="btn btn-secondary" href="https://wa.me/916381637722" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Inquiry</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img class="product-img" src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80" alt="JSW Steel" loading="lazy" />
+              <h3>JSW Steel</h3>
+              <p class="product-meta">Trusted steel for commercial and residential infrastructure.</p>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="tel:6381637722"><i class="fa-solid fa-phone"></i> Call</a>
+                <a class="btn btn-secondary" href="https://wa.me/916381637722" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Inquiry</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img class="product-img" src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=900&q=80" alt="Tata Tiscon" loading="lazy" />
+              <h3>Tata Tiscon</h3>
+              <p class="product-meta">Premium TMT steel for strong foundations and lasting structures.</p>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="tel:6381637722"><i class="fa-solid fa-phone"></i> Call</a>
+                <a class="btn btn-secondary" href="https://wa.me/916381637722" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Inquiry</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <img class="product-img" src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80" alt="Aggregates and sand" loading="lazy" />
+              <h3>Aggregates & Sand</h3>
+              <p class="product-meta">Jelly, river sand, M-sand and P-sand for all construction needs.</p>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="tel:6381637722"><i class="fa-solid fa-phone"></i> Call</a>
+                <a class="btn btn-secondary" href="https://wa.me/916381637722" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Inquiry</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="container">
+          <div class="pill"><i class="fa-solid fa-clipboard-list"></i> Services</div>
+          <h2 class="section-title">Complete support for construction professionals and homeowners</h2>
+          <div class="services-grid">
+            <article class="service-card"><h3>Supply of Construction Materials</h3><p>End-to-end supply for residential and commercial sites.</p></article>
+            <article class="service-card"><h3>Home Building Materials</h3><p>Everything needed for new homes, renovations and extensions.</p></article>
+            <article class="service-card"><h3>Commercial Construction Supply</h3><p>Reliable delivery for builders, contractors and developers.</p></article>
+            <article class="service-card"><h3>Bulk Cement Supply</h3><p>Large-scale bulk procurement with steady stock availability.</p></article>
+            <article class="service-card"><h3>Steel Supply</h3><p>TMT, structural steel and reinforcement materials.</p></article>
+            <article class="service-card"><h3>Sand Supply</h3><p>River sand, M-sand and P-sand for varied needs.</p></article>
+            <article class="service-card"><h3>Site Delivery</h3><p>Fast transport and delivery to your worksite.</p></article>
+            <article class="service-card"><h3>Wholesale Orders</h3><p>Special pricing and service for dealers and contractors.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="pill"><i class="fa-solid fa-layer-group"></i> Product Categories</div>
+          <h2 class="section-title">Explore the essentials we keep ready for delivery</h2>
+          <div class="category-grid">
+            <article class="category-card"><h3>Cement</h3><p>ACC, Ramco, UltraTech, Dalmia and more.</p></article>
+            <article class="category-card"><h3>Steel</h3><p>TMT steel, structural bars and reinforcement.</p></article>
+            <article class="category-card"><h3>Sand</h3><p>River sand, M-sand and P-sand options.</p></article>
+            <article class="category-card"><h3>Bricks</h3><p>High-quality bricks for sturdy walls and structures.</p></article>
+            <article class="category-card"><h3>Aggregates</h3><p>Jelly and stone material for strong concrete.</p></article>
+            <article class="category-card"><h3>Construction Chemicals</h3><p>Waterproofing and chemical solutions for durability.</p></article>
+            <article class="category-card"><h3>Waterproofing</h3><p>Long-lasting sealants, coatings and waterproofing products.</p></article>
+            <article class="category-card"><h3>Equipment</h3><p>Wheelbarrows and construction equipment for site use.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section">
+        <div class="container">
+          <div class="pill"><i class="fa-solid fa-images"></i> Gallery</div>
+          <h2 class="section-title">A look at our materials, warehouse and project support</h2>
+          <div class="gallery-grid">
+            <div class="gallery-item wide"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="Construction materials storage" loading="lazy" /></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80" alt="Steel and construction materials" loading="lazy" /></div>
+            <div class="gallery-item tall"><img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=900&q=80" alt="Construction stock" loading="lazy" /></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Cement materials" loading="lazy" /></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80" alt="Site delivery" loading="lazy" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="pill"><i class="fa-solid fa-comments"></i> Testimonials</div>
+          <h2 class="section-title">What our customers say</h2>
+          <div class="testimonial-grid">
+            <article class="testimonial-card">
+              <div style="color: var(--accent); font-size: 1.15rem;">★★★★★</div>
+              <p>Excellent quality cement and timely delivery. Their service is reliable and professional.</p>
+              <strong>— Builder, Sethiathope</strong>
+            </article>
+            <article class="testimonial-card">
+              <div style="color: var(--accent); font-size: 1.15rem;">★★★★★</div>
+              <p>Best prices in Sethiathope. We always get the right materials without delays.</p>
+              <strong>— Contractor</strong>
+            </article>
+            <article class="testimonial-card">
+              <div style="color: var(--accent); font-size: 1.15rem;">★★★★★</div>
+              <p>Highly recommended for builders and home owners. Great support and quick response.</p>
+              <strong>— Homeowner</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="pill"><i class="fa-solid fa-circle-question"></i> FAQ</div>
+          <h2 class="section-title">Common questions about Prem Traders</h2>
+          <div class="faq-list">
+            <article class="faq-item active">
+              <div class="faq-question"><span>Do you provide home delivery?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">Yes, we offer delivery for orders across Sethiathope and surrounding locations.</div>
+            </article>
+            <article class="faq-item">
+              <div class="faq-question"><span>Which cement brands are available?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">We stock ACC, Ramco, UltraTech, Dalmia and other trusted cement brands based on availability.</div>
+            </article>
+            <article class="faq-item">
+              <div class="faq-question"><span>Can I place bulk orders?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">Yes, we regularly support bulk orders for builders, contractors, and commercial projects.</div>
+            </article>
+            <article class="faq-item">
+              <div class="faq-question"><span>Do you supply construction chemicals?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">Yes, we provide waterproofing chemicals and other construction chemical solutions.</div>
+            </article>
+            <article class="faq-item">
+              <div class="faq-question"><span>What are your working hours?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">We are available from 9:00 AM to 7:00 PM on weekdays and Saturdays, with support available on request.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container contact-grid">
+          <div class="info-box">
+            <div class="pill"><i class="fa-solid fa-location-dot"></i> Contact Us</div>
+            <h2 class="section-title">Visit or reach out to Prem Traders</h2>
+            <div class="info-item"><i class="fa-solid fa-location-dot" style="color: var(--primary);"></i><div><strong>Address</strong><br />36/3 North Main Road, Sethiathope - 608702, Tamil Nadu, India</div></div>
+            <div class="info-item"><i class="fa-solid fa-phone" style="color: var(--primary);"></i><div><strong>Phone</strong><br /><a href="tel:6381637722">6381637722</a></div></div>
+            <div class="info-item"><i class="fa-brands fa-whatsapp" style="color: var(--primary);"></i><div><strong>WhatsApp</strong><br /><a href="https://wa.me/916381637722" target="_blank" rel="noopener">Chat Now</a></div></div>
+            <div class="info-item"><i class="fa-solid fa-envelope" style="color: var(--primary);"></i><div><strong>Email</strong><br /><a href="mailto:info@premtraders.com">info@premtraders.com</a></div></div>
+            <iframe src="https://www.google.com/maps?q=36/3%20North%20Main%20Road%20Sethiathope%20608702&output=embed" title="Prem Traders location" loading="lazy" style="width:100%; height:240px; border:0; border-radius:16px; margin-top: 0.5rem;"></iframe>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0;">Request a Quick Quote</h3>
+            <form>
+              <input type="text" placeholder="Your Name" required />
+              <input type="tel" placeholder="Phone Number" required />
+              <select>
+                <option>Select Product Required</option>
+                <option>ACC Cement</option>
+                <option>Ramco Cement</option>
+                <option>UltraTech Cement</option>
+                <option>Dalmia Cement</option>
+                <option>TMT Steel</option>
+                <option>Aggregates</option>
+                <option>River Sand</option>
+                <option>M-Sand</option>
+                <option>P-Sand</option>
+                <option>Bricks</option>
+                <option>Cement Blocks</option>
+                <option>Waterproofing Chemicals</option>
+                <option>Construction Chemicals</option>
+              </select>
+              <textarea placeholder="Tell us about your requirement..."></textarea>
+              <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 0.8rem;"><span class="brand-badge">PT</span><span>Prem Traders</span></div>
+          <p style="color: var(--muted);">Trusted supplier of premium building materials, cement, steel and construction chemicals in Sethiathope.</p>
+          <div class="socials" style="margin-top: 0.8rem;">
+            <a href="https://wa.me/916381637722" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="tel:6381637722" aria-label="Call"><i class="fa-solid fa-phone"></i></a>
+            <a href="#home" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <p><a href="#products">Products</a></p>
+          <p><a href="#services">Services</a></p>
+          <p><a href="#gallery">Gallery</a></p>
+          <p><a href="#contact">Contact</a></p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <p><a href="tel:6381637722">6381637722</a></p>
+          <p><a href="https://wa.me/916381637722">WhatsApp</a></p>
+          <p><a href="mailto:info@premtraders.com">info@premtraders.com</a></p>
+        </div>
+        <div>
+          <h3>Location</h3>
+          <p>36/3 North Main Road</p>
+          <p>Sethiathope - 608702</p>
+          <p>Tamil Nadu, India</p>
+        </div>
+      </div>
+      <div class="container" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); text-align:center;">
+        © 2026 Prem Traders. All rights reserved.
+      </div>
+    </footer>
+
+    <a class="floating-btn whatsapp" href="https://wa.me/916381637722?text=Hello%20Prem%20Traders%2C%20I%20would%20like%20to%20inquire%20about%20construction%20materials." target="_blank" rel="noopener" aria-label="WhatsApp">
+      <i class="fa-brands fa-whatsapp fa-2x"></i>
+    </a>
+    <a class="floating-btn call" href="tel:6381637722" aria-label="Call">
+      <i class="fa-solid fa-phone fa-2x"></i>
+    </a>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem('prem-theme');
+      if (savedTheme) root.setAttribute('data-theme', savedTheme);
+      themeToggle?.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('prem-theme', next);
+        const icon = themeToggle.querySelector('i');
+        icon.className = next === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      });
+
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', () => {
+          document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+        });
+      });
+
+      const scrollTop = document.getElementById('scrollTop');
+      window.addEventListener('scroll', () => {
+        scrollTop?.classList.toggle('show', window.scrollY > 480);
+      });
+      scrollTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+  </body>
 </html>
